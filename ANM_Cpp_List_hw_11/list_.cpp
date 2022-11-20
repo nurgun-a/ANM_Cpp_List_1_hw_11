@@ -69,6 +69,7 @@ void List::Del(int pos)
 		}
 		delete del;
 		Count--;
+		Print();
 	}
 	
 }
@@ -81,6 +82,7 @@ void List::Del_All()
 	}
 	Count = 0;
 }
+
 
 void List::Print()
 {
@@ -110,6 +112,7 @@ void List::Print(int pos)
 			i++;
 		}
 		cout << "Position: " << pos << " -> " << temp->data << endl;
+		Print();
 	}
 	
 }
@@ -127,33 +130,28 @@ void List::Insert(int pos)
 	{
 		cout << "Ошибка!!! Некоррктные данные!!!" << endl;
 	}
-
 	else
 	{
-		int i = 1;
-		Element* ins = Head;
-		while (i < pos)
-		{
-			prev_temp = ins;
-			ins = ins->Next;
-			i++;
-		}
-
 		char c;
-		Element* temp1 = new Element;
 		cout << "Enter simbol: "; cin >> c; cout << endl;
-		temp1->data = c;
-
-		if (prev_temp != 0 && Count != 1)
+		Element* temp1 = new Element;
+		Element* prev = Head;
+		for (int i = 1; i < pos-1; i++)
 		{
-			prev_temp->Next = temp1;
+			prev = prev->Next;
 		}
-		temp1->Next = ins;
-		prev_temp = temp1;
-		ins = prev_temp;
+		Element *new_e = new Element((char)c,prev->Next);
+		if (pos!=1)
+		{
+			prev->Next = new_e;
+		}
+		else if (pos==1)
+		{
+			Head = new Element((char)c, Head);
+		}
 		Count++;
-	}
-	
+		Print();		
+	}	
 }
 
 void menu()
@@ -167,5 +165,6 @@ void menu()
 	cout << "2 - Распечатать по позиции;" << endl;
 	cout << "3 - Вставить по позиции; " << endl;
 	cout << "4 - Удалить по позиции;" << endl;
+	cout << "5 - Удалить все;" << endl;
 	cout << "0 - Выход;" << endl;
 }

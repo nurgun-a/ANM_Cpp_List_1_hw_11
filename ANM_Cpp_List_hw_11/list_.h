@@ -8,6 +8,13 @@ struct Element
 {
 	char data;
 	Element* Next;
+public:
+	Element() {};
+	Element(char _data, Element* n)
+	{
+		data = _data;
+		Next = n;
+	}
 };
 class List
 {

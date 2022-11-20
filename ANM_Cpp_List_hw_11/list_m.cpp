@@ -32,23 +32,24 @@ void main()
 		case 2:
 		{
 			cout << "Input position: "; cin >> pos_; cout << endl;
-			l1.Print();
 			l1.Print(pos_);
 			_getch();
 		}break;
 		case 3:
 		{
 			cout << "Input position: "; cin >> pos_; cout << endl;
-			l1.Insert(pos_);
-			l1.Print();
+			l1.Insert(pos_);			
 			_getch();
 		}break;
 		case 4:
 		{
 			cout << "Input position: "; cin >> pos_; cout << endl;
 			l1.Del(pos_);
-			l1.Print();
 			_getch();
+		}break;
+		case 5:
+		{
+			l1.Del_All();
 		}break;
 		case 0:
 		{
