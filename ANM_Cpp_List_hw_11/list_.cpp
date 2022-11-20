@@ -26,6 +26,7 @@ void List::Add(char _data)
 		Head = Tail = temp;
 	}
 	Count++;
+	Print();
 }
 
 void List::Del()
@@ -166,5 +167,6 @@ void menu()
 	cout << "3 - Вставить по позиции; " << endl;
 	cout << "4 - Удалить по позиции;" << endl;
 	cout << "5 - Удалить все;" << endl;
+	cout << "6 - Добавить элемент;" << endl;
 	cout << "0 - Выход;" << endl;
 }

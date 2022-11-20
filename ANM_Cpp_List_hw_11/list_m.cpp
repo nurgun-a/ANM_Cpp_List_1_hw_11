@@ -51,6 +51,13 @@ void main()
 		{
 			l1.Del_All();
 		}break;
+		case 6:
+		{
+			char _data;
+			cout << "Введите символ: "; cin >> _data; cout << endl;
+			l1.Add(_data);
+			_getch();
+		}break;
 		case 0:
 		{
 			key = 0;
